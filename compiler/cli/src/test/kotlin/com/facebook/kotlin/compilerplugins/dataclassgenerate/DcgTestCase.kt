@@ -36,12 +36,11 @@ open class DcgTestCase {
           pluginOptions = dcgConfig.asCliOptions()
         }
 
-    val DEFAULT_DCG_CONFIG: DcgTestConfiguration =
-        DcgTestConfiguration(
-            enabled = true,
-            pluginMode = PluginMode.EXPLICIT,
-            generateSuperClass = true,
-        )
+    val DEFAULT_DCG_CONFIG: DcgTestConfiguration = DcgTestConfiguration(
+        enabled = true,
+        pluginMode = PluginMode.EXPLICIT,
+        generateSuperClass = true,
+    )
   }
 }
 

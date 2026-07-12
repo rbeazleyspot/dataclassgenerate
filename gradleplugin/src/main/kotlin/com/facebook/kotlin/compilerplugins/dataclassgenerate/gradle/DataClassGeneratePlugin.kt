@@ -21,12 +21,11 @@ class DataClassGeneratePlugin : KotlinCompilerPluginSupportPlugin {
     target.extensions.create("dataClassGenerate", DataClassGeneratePluginExtension::class.java)
   }
 
-  override fun getPluginArtifact() =
-      SubpluginArtifact(
-          "com.facebook.kotlin.compilerplugins.dataclassgenerate",
-          "cli",
-          "$dcgVersion",
-      )
+  override fun getPluginArtifact() = SubpluginArtifact(
+      "com.facebook.kotlin.compilerplugins.dataclassgenerate",
+      "cli",
+      "$dcgVersion",
+  )
 
   override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean {
     return kotlinCompilation.target.project.plugins.hasPlugin(DataClassGeneratePlugin::class.java)
