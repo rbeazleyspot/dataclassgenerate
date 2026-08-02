@@ -31,7 +31,7 @@ class DataClassGenerateComponentRegistrar : DataClassGenerateComponentRegistrarB
       DataClassGenerateExt.generateSuperClass = configuration[GENERATE_SUPER_CLASS]
 
       ClassBuilderInterceptorExtension.registerExtension(
-          DataClassGenerateInterceptorExtension(configuration[MODE])
+          DataClassGenerateInterceptorExtension(configuration[MODE]),
       )
     }
   }

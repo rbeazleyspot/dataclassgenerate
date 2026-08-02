@@ -32,7 +32,7 @@ class DataClassGeneratePlugin : KotlinCompilerPluginSupportPlugin {
   }
 
   override fun applyToCompilation(
-      kotlinCompilation: KotlinCompilation<*>
+      kotlinCompilation: KotlinCompilation<*>,
   ): Provider<List<SubpluginOption>> {
     val project = kotlinCompilation.target.project
     val extension = project.extensions.getByType(DataClassGeneratePluginExtension::class.java)
@@ -44,7 +44,7 @@ class DataClassGeneratePlugin : KotlinCompilerPluginSupportPlugin {
     if (extension.generateSuperClass.get()) {
       kotlinCompilation.dependencies {
         implementation(
-            "com.facebook.kotlin.compilerplugins.dataclassgenerate:superclass:$dcgVersion"
+            "com.facebook.kotlin.compilerplugins.dataclassgenerate:superclass:$dcgVersion",
         )
       }
     }

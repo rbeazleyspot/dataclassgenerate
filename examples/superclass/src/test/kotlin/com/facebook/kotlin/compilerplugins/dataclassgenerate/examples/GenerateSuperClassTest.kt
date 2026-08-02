@@ -54,7 +54,7 @@ class GenerateSuperClassTest {
     )
     Assertions.assertThat(traceSignatureVisitor.declaration)
         .isEqualTo(
-            "<T extends java.util.Collection<?>, U> extends com.facebook.kotlin.compilerplugins.dataclassgenerate.superclass.DataClassSuper implements java.util.concurrent.Callable<java.lang.Object>"
+            "<T extends java.util.Collection<?>, U> extends com.facebook.kotlin.compilerplugins.dataclassgenerate.superclass.DataClassSuper implements java.util.concurrent.Callable<java.lang.Object>",
         )
   }
 }
