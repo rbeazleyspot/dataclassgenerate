@@ -30,7 +30,7 @@ class DataClassGenerateComponentRegistrar : DataClassGenerateComponentRegistrarB
 
       if (!tryRegisterK1Extension(mode)) {
         IrGenerationExtension.registerExtension(
-            DataClassGenerateIrGenerationExtension(mode),
+          DataClassGenerateIrGenerationExtension(mode),
         )
       }
     }
@@ -47,20 +47,20 @@ class DataClassGenerateComponentRegistrar : DataClassGenerateComponentRegistrarB
 }
 
 /**
- * Isolated into its own object so that referencing [ClassBuilderInterceptorExtension] only
- * triggers class loading when this object is actually accessed. On Kotlin 2.4.0+ where the
- * class was removed, the caller catches [NoClassDefFoundError] and falls back to K2.
+ * Isolated into its own object so that referencing [ClassBuilderInterceptorExtension] only triggers
+ * class loading when this object is actually accessed. On Kotlin 2.4.0+ where the class was
+ * removed, the caller catches [NoClassDefFoundError] and falls back to K2.
  */
 @Suppress("DEPRECATION_ERROR")
 @OptIn(org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi::class)
 private object K1ExtensionRegistrar {
   fun register(
-      storage: org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage,
-      mode: PluginMode
+    storage: org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage,
+    mode: PluginMode,
   ) {
     with(storage) {
       org.jetbrains.kotlin.codegen.extensions.ClassBuilderInterceptorExtension.registerExtension(
-          DataClassGenerateInterceptorExtension(mode),
+        DataClassGenerateInterceptorExtension(mode),
       )
     }
   }
