@@ -12,8 +12,8 @@ import org.jetbrains.kotlin.name.FqName
 class DataClassGenerateStrictModeViolationException(message: String) : RuntimeException(message)
 
 fun generateStrictModeViolationMessage(fqName: FqName?): String {
-  val shortName = fqName?.shortName() ?: fqName
-  return """
+    val shortName = fqName?.shortName() ?: fqName
+    return """
      You are running DataClassGenerate compiler plugin in a STRICT mode, but $fqName is not annotated with @DataClassGenerate.
 
      Replace $shortName with @DataClassGenerate(toString=Mode.OMIT, equalsHashCode=Mode.KEEP)
@@ -26,5 +26,5 @@ fun generateStrictModeViolationMessage(fqName: FqName?): String {
      2. How to configure @DataClassGenerate annotation? - https://fburl.com/dataclassgenerate
      3. What is STRICT mode? - https://fburl.com/dataclassgenerate_mode
     """
-      .trimIndent()
+        .trimIndent()
 }
